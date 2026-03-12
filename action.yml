@@ -1,12 +1,19 @@
 name: 'JueJin-Post'
-description: '获取掘金最近文章'
+description: '获取掘金用户最近文章，输出 Markdown 格式列表'
+branding:
+  icon: 'book-open'
+  color: 'blue'
 inputs:
-  user_id: # user_id of input
-    description: '掘金用户 ID'
+  user_id:
+    description: '掘金用户 ID（必填）'
     required: true
+  limit:
+    description: '获取文章数量，1-20，默认 10'
+    required: false
+    default: '10'
 outputs:
   md:
-    description: 'markdown 格式'
+    description: '文章列表的 Markdown 格式字符串'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
